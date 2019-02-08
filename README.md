@@ -84,11 +84,11 @@ In `server/routes/listings.server.routes.js`, you will find code that specifies 
 ## Assignment Submission
 
 1. Implement the request handlers in `listings.server.controller.js`
-    - test your implementation by running the tests found in `listings.server.routes.test.js`
 2. Complete the app configuration in `express.js`. 
     - serve the static files found in the public folder when a user makes a request to the path `/`. [Refer to this documentation](http://expressjs.com/en/starter/static-files.html) for help
     - use the listings router for requests going to the `/api/listings` path 
     - direct users to the client side `index.html` file for requests to any other path
+    - test your implementation by running the tests found in `listings.server.routes.test.js`
 3. Implement client-side addListing and deleteListing functions in `listingController.js`.
 4. Implement delete function in `listingFactory.js`.
 5. Copy or improve any styling you added in Bootcamp Assignment #2.
