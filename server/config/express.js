@@ -19,17 +19,24 @@ module.exports.init = function() {
   //body parsing middleware 
   app.use(bodyParser.json());
 
+/* server wrapper around Google Maps API to get latitude + longitude coordinates from address */
+  app.post('/api/coordinates', getCoordinates, function(req, res) {
+    res.send(req.results);
+  });
   
-  /**TODO
-  Serve static files */
-  
-
-  /**TODO 
-  Use the listings router for requests to the api */
+  /* Serve static files */
+  app.use('/', express.static(__dirname + '/../../client'));
+  app.use('/public', express.static(__dirname + '/../../public'));
 
 
-  /**TODO 
-  Go to homepage for all routes not specified */ 
+  /* Use the listings router for requests to the api */
+  app.use('/api/listings', listingsRouter);
+
+
+  /* Go to homepage for all routes not specified */ 
+  app.use(function(req, res) {
+    res.sendFile(path.resolve('client/index.html'));
+  });
 
   return app;
 };  
